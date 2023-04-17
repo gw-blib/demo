@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mall.demo.mapper.WalletInfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.mall.demo.pojo.WalletInfo">
+            <id property="wid" column="wid" jdbcType="INTEGER"/>
+            <result property="balance" column="balance" jdbcType="DECIMAL"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        wid,balance
+    </sql>
+    <select id="getBalanceByUid" resultType="java.math.BigDecimal">
+        select w.balance
+        from wallet_info  as  w left join user_info as u
+        on u.wallet_id=w.wid
+        where u.uid=#{uid}
+    </select>
+    <select id="getWallteInfoByUid" resultType="com.mall.demo.pojo.WalletInfo">
+        select w.wid,w.balance
+        from wallet_info  as  w left join user_info as u
+                                          on u.wallet_id=w.wid
+        where u.uid=#{uid}
+    </select>
+</mapper>

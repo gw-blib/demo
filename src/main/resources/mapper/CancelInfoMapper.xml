@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mall.demo.mapper.CancelInfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.mall.demo.pojo.CancelInfo">
+            <result property="uid" column="uid" jdbcType="INTEGER"/>
+            <result property="sum" column="sum" jdbcType="DECIMAL"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        uid,sum
+    </sql>
+</mapper>
